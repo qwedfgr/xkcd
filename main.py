@@ -28,7 +28,7 @@ def get_auth_params():
 
 
 def main():
-    url, comment = get_url_and_comment_random_of_picture()
+    url, comment = get_random_picture_url_and_comment()
     fetch_picture('xkcd.png', url)
     auth_params = get_auth_params()
     upload_photo_params = upload_photo(auth_params)
@@ -38,7 +38,7 @@ def main():
     os.remove('images/xkcd.png')
 
 
-def get_url_and_comment_random_of_picture():
+def get_random_picture_url_and_comment():
     url = 'http://xkcd.com/info.0.json'
     response = requests.get(url)
     total_pictures = response.json()['num']
