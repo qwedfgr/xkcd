@@ -5,9 +5,9 @@ import random
 
 
 def fetch_picture(image_name, url):
-    directory = 'images/'
+    directory = 'images'
     os.makedirs(directory, exist_ok=True)
-    filename = '{}{}'.format(directory, image_name)
+    filename = os.path.join(directory, image_name)
     r = requests.get(url)
     with open(filename, 'wb') as f:
         f.write(r.content)
