@@ -6,8 +6,7 @@ import random
 
 def fetch_picture(image_name, url):
     directory = 'images/'
-    if not os.path.exists(directory):
-        os.makedirs(directory)
+    os.makedirs(directory, exist_ok=True)
     filename = '{}{}'.format(directory, image_name)
     r = requests.get(url)
     with open(filename, 'wb') as f:
