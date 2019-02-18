@@ -15,7 +15,6 @@ def fetch_picture(image_name, url):
 
 
 def get_auth_params():
-    load_dotenv()
     TOKEN = os.getenv('TOKEN')
     GROUP_ID = os.getenv('GROUP_ID')
     version = 5.92
@@ -28,6 +27,7 @@ def get_auth_params():
 
 
 def main():
+    load_dotenv()
     url, comment = get_random_picture_url_and_comment()
     fetch_picture('xkcd.png', url)
     auth_params = get_auth_params()
